@@ -8,9 +8,19 @@ namespace ConsoleApp2
 {
     internal class Program
     {
+        static void dummyMethod(string name)
+        {
+            Console.WriteLine("My name is"+name);
+        }
+        static int findSum(int a,int b)
+        {
+            return a+b;
+        }
         static void Main(string[] args)
         {
             //variables
+            dummyMethod("Nazal");
+            Console.WriteLine(findSum(29, 23));
 
             int age = 25; //variable of type number
 
@@ -140,6 +150,21 @@ namespace ConsoleApp2
                     break;
                 }
                 Console.WriteLine(n);
+            }
+
+            //Arrays
+
+            string[] brand = { "Volvo", "BMW", "Ford", "Mazda" };
+            Console.WriteLine(brand.Length);
+            brand[0] = "Opel";
+            Console.WriteLine(brand[0]);
+
+            //loop through an array
+
+            string[] cars1 = { "benzz", "BMW", "Ford", "Mazda" };
+            for (int c = 0; c < cars1.Length; c++)
+            {
+                Console.WriteLine(cars1[c]);
             }
 
             Console.ReadLine();
