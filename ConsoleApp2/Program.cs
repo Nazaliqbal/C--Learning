@@ -60,14 +60,19 @@ namespace ConsoleApp2
                 Level myVar = Level.Medium;
                 Console.WriteLine(myVar);
 
-            //abstraction
+                //abstraction
 
                 Settings myLang = new Settings();
                 myLang.display1();
                 myLang.display2();
 
-            //properties
-            College pa = new College("PA College of Engineering","Manglore");
+                //interfaces
+
+                Google myGoogle=new Google();
+                myGoogle.companyMotto();
+
+                //properties
+                College pa = new College("PA College of Engineering","Manglore");
                 Console.WriteLine("I am from " + pa.collegeName);
                 pa.Place = "Kasargod";
                 Console.WriteLine("I am from " + pa.Place);
