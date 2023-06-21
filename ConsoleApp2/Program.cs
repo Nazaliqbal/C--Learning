@@ -32,19 +32,19 @@ namespace ConsoleApp2
 
                 //polymorphism
 
-                Animal myAnimal = new Animal();  // Create a Animal object
-                Animal myPig = new Pig();  // Create a Pig object
-                Animal myDog = new Dog();  // Create a Dog object
+                Animal myAnimal = new Animal();  
+                Animal myPig = new Pig();  
+                Animal myDog = new Dog();  
 
                 myAnimal.animalSound();
                 myPig.animalSound();
                 myDog.animalSound();
 
 
-            //constructors from book.cs
+                //constructors from book.cs
 
 
-            Book book1 = new Book("harry potter","JK",800);
+                Book book1 = new Book("harry potter","JK",800);
                 Book book2 = new Book("Life of PI", "Anant SHarma", 400);
                 Console.WriteLine(book1.pages);
                 Console.WriteLine(book2.book);
@@ -232,57 +232,57 @@ namespace ConsoleApp2
                 Console.WriteLine("total salary is " + totalSalary);
 
 
-            //Calculator 
+                //Calculator 
 
-            //Console.WriteLine("Enter first number:");
-            //double firstNo = Convert.ToDouble(Console.ReadLine());
+                //Console.WriteLine("Enter first number:");
+                //double firstNo = Convert.ToDouble(Console.ReadLine());
 
-            //Console.WriteLine("Enter second number:");
-            //double secondNo = Convert.ToDouble(Console.ReadLine());
+                //Console.WriteLine("Enter second number:");
+                //double secondNo = Convert.ToDouble(Console.ReadLine());
 
-            //Console.WriteLine("Enter Operator:");
-            //string operatorName = Console.ReadLine();
+                //Console.WriteLine("Enter Operator:");
+                //string operatorName = Console.ReadLine();
 
-            //double result = 0;
+                //double result = 0;
 
-            //switch (operatorName)
-            //{
-            //    case "+":
-            //        result = firstNo + secondNo;
-            //        break;
-            //    case "-":
-            //        result = firstNo - secondNo;
-            //        break;
-            //    case "*":
-            //        result = firstNo * secondNo;
-            //        break;
-            //    case "/":
-            //        result = firstNo / secondNo;
-            //        break;
-            //    default:
-            //        Console.WriteLine("Invalid operator entered.");
-            //        return; // Exit the method if an invalid operator is entered
-            //}
+                //switch (operatorName)
+                //{
+                //    case "+":
+                //        result = firstNo + secondNo;
+                //        break;
+                //    case "-":
+                //        result = firstNo - secondNo;
+                //        break;
+                //    case "*":
+                //        result = firstNo * secondNo;
+                //        break;
+                //    case "/":
+                //        result = firstNo / secondNo;
+                //        break;
+                //    default:
+                //        Console.WriteLine("Invalid operator entered.");
+                //        return; // Exit the method if an invalid operator is entered
+                //}
 
-            //Console.WriteLine("Result: " + result);
+                //Console.WriteLine("Result: " + result);
 
-            //guessing game 
+                //guessing game 
 
-            //Console.WriteLine("Guessing Game !");
-            //string secretWord = "Nazal";
-            //string guess = "";
+                //Console.WriteLine("Guessing Game !");
+                //string secretWord = "Nazal";
+                //string guess = "";
 
-            //for (int t = 9; t > 0; t--)
-            //{
-            //    Console.WriteLine("Guess !");
-            //    guess = Console.ReadLine();
-            //    if (guess != secretWord)
-            //    {
-            //        Console.WriteLine("You've got " + t + " chances left!");
-            //    }
-            //    Console.WriteLine("You've guessed correctly");
-            //}
-            //Console.WriteLine("You've run out of chances!");
+                //for (int t = 9; t > 0; t--)
+                //{
+                //    Console.WriteLine("Guess !");
+                //    guess = Console.ReadLine();
+                //    if (guess != secretWord)
+                //    {
+                //        Console.WriteLine("You've got " + t + " chances left!");
+                //    }
+                //    Console.WriteLine("You've guessed correctly");
+                //}
+                //Console.WriteLine("You've run out of chances!");
 
             Console.ReadLine();
             }
