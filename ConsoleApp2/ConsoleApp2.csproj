@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="Calculator.cs" />
+    <Compile Include="Guess.cs" />
     <Compile Include="Polymorphism.cs" />
     <Compile Include="Inheritance.cs" />
     <Compile Include="Properties.cs" />

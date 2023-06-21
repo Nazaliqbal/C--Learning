@@ -8,6 +8,7 @@ namespace ConsoleApp2
 {
     internal class Program
     {
+            //Enums
             enum Level
             {
                 Low,
@@ -231,8 +232,7 @@ namespace ConsoleApp2
                 }
                 Console.WriteLine("total salary is " + totalSalary);
 
-
-                //Calculator 
+                ////calculator
 
                 //Console.WriteLine("Enter first number:");
                 //double firstNo = Convert.ToDouble(Console.ReadLine());
@@ -243,46 +243,14 @@ namespace ConsoleApp2
                 //Console.WriteLine("Enter Operator:");
                 //string operatorName = Console.ReadLine();
 
-                //double result = 0;
-
-                //switch (operatorName)
-                //{
-                //    case "+":
-                //        result = firstNo + secondNo;
-                //        break;
-                //    case "-":
-                //        result = firstNo - secondNo;
-                //        break;
-                //    case "*":
-                //        result = firstNo * secondNo;
-                //        break;
-                //    case "/":
-                //        result = firstNo / secondNo;
-                //        break;
-                //    default:
-                //        Console.WriteLine("Invalid operator entered.");
-                //        return; // Exit the method if an invalid operator is entered
-                //}
+                //double result = Calculator.Calculate(firstNo, secondNo, operatorName);
 
                 //Console.WriteLine("Result: " + result);
 
-                //guessing game 
 
-                //Console.WriteLine("Guessing Game !");
-                //string secretWord = "Nazal";
-                //string guess = "";
+                ////guessing game 
 
-                //for (int t = 9; t > 0; t--)
-                //{
-                //    Console.WriteLine("Guess !");
-                //    guess = Console.ReadLine();
-                //    if (guess != secretWord)
-                //    {
-                //        Console.WriteLine("You've got " + t + " chances left!");
-                //    }
-                //    Console.WriteLine("You've guessed correctly");
-                //}
-                //Console.WriteLine("You've run out of chances!");
+                //GuessingGame.Play();
 
             Console.ReadLine();
             }
