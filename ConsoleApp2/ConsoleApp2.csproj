@@ -46,6 +46,7 @@
     <Compile Include="Abstraction.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Calculator.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="Guess.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="Polymorphism.cs" />

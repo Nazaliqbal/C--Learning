@@ -8,15 +8,6 @@ namespace ConsoleApp2
 {
     internal class Program
     {
-            //Enums
-            enum Level
-            {
-                Low,
-                Medium,
-                High
-            }
-            
-
             //method with no return value
             static void dummyMethod(string name)
             {
@@ -70,6 +61,14 @@ namespace ConsoleApp2
 
                 Google myGoogle=new Google();
                 myGoogle.companyMotto();
+
+                //enum 
+                Level temp = Level.Medium;
+                Console.WriteLine(temp);
+
+                Months april = Months.April;
+                Console.WriteLine(april);
+
 
                 //properties
                 College pa = new College("PA College of Engineering","Manglore");
