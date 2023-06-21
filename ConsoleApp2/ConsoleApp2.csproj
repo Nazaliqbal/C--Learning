@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="oop.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="Polymorphism.cs" />
+    <Compile Include="Inheritance.cs" />
+    <Compile Include="Properties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
