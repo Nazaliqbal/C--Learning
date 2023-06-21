@@ -22,9 +22,24 @@ namespace ConsoleApp2
             static void Main(string[] args)
             {
 
-                //polymorphism
+            //Exception handling try catch 
+            try
+            {
+                int[] myNumbers = { 1, 2, 3 };
+                Console.WriteLine(myNumbers[10]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("The 'try catch' is finished.");
+            }
 
-                Animal myAnimal = new Animal();  
+            //polymorphism
+
+            Animal myAnimal = new Animal();  
                 Animal myPig = new Pig();  
                 Animal myDog = new Dog();  
 
