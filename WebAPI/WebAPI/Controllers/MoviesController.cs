@@ -26,28 +26,7 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
 
-            var movies = await _dbContext.Movies.ToListAsync();
-            var formattedMovies = movies.Select(movie =>
-            {
-                movie.ReleaseDate = movie.ReleaseDate.Date; // Optionally remove the time component
-                return movie;
-            });
-
-            var settings = new JsonSerializerSettings
-            {
-                Formatting = Formatting.Indented,
-                Converters = new List<JsonConverter> { new IsoDateTimeConverter { DateTimeFormat = "dd-MM-yyyy" } }
-            };
-
-            var json = JsonConvert.SerializeObject(formattedMovies, settings);
-            var result = new ContentResult
-            {
-                Content = json,
-                ContentType = "application/json",
-                StatusCode = 200
-            };
-
-            return result;
+            return await _dbContext.Movies.ToListAsync();
         }
         //get movie by id method
         [HttpGet("{id}")]
@@ -63,28 +42,11 @@ namespace WebAPI.Controllers
             {
                 return NotFound();
             }
-
-            movie.ReleaseDate = movie.ReleaseDate.Date; // Optionally remove the time component
-
-            var settings = new JsonSerializerSettings
-            {
-                Formatting = Formatting.Indented,
-                Converters = new List<JsonConverter> { new IsoDateTimeConverter { DateTimeFormat = "dd-MM-yyyy" } }
-            };
-
-            var json = JsonConvert.SerializeObject(movie, settings);
-            var result = new ContentResult
-            {
-                Content = json,
-                ContentType = "application/json",
-                StatusCode = 200
-            };
-
-            return result;
+            return movie;
         }
         //post method
         [HttpPost]
-        public async Task<ActionResult<Movie>> CreateMovie([FromBody] Movie movie)
+        public async Task<ActionResult<Movie>> CreateMovie( Movie movie)
         {
             if (_dbContext.Movies.Any(m => m.Title == movie.Title))
             {
