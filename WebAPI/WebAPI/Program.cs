@@ -4,6 +4,11 @@ using WebAPI.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(options=>options.AddPolicy(name:"userOrigins",
+    policy =>
+    {
+        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+    }));
 builder.Services.AddDbContext<MovieContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MovieContext")));
 
@@ -20,6 +25,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("userOrigins");
 
 app.UseHttpsRedirection();
 
