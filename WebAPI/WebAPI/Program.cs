@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
+using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<UserService>();
 builder.Services.AddCors(options=>options.AddPolicy(name:"userOrigins",
     policy =>
     {
@@ -28,7 +30,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("userOrigins");
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

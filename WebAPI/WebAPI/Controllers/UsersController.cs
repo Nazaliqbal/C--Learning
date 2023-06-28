@@ -2,27 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class UsersController : Controller
     {
         private readonly MovieContext _context;
 
-        public UsersController(MovieContext context)
+        public UserService UserService { get; }
+
+        public UsersController(UserService _userService)
         {
-            _context = context;
+   
+            UserService = _userService;
+            _context = UserService.dbContext;
         }
 
         // GET: Users
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
             if (_context.Users == null)
@@ -30,23 +39,65 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
 
-            return await _context.Users.ToListAsync();
+            return await UserService.GetUsersAsync();
+        }
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+
+        public async Task<ActionResult<User>> GetUserbyId(int id)
+        {
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
+            var user=await UserService.GetUserbyIdAsync(id);
+            if (user == null) { 
+                return NotFound();
+            }
+            return user;
         }
         [HttpPost]
-        public async Task<ActionResult<User>> CreateMovie(User user)
+        public async Task<ActionResult<User>> CreateUser(User user)
         {
-            // Check if the email already exists in the table
-            bool emailExists = await _context.Users.AnyAsync(u => u.Email == user.Email);
-            if (emailExists)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("Email", "Email already taken");
                 return BadRequest(ModelState);
             }
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+            try
+            {
+                var createdUser = await UserService.CreateUserAsync(user);
+                return CreatedAtAction(nameof(GetUser), new { id = createdUser.Id }, createdUser);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Email", ex.Message);
+                return BadRequest(ModelState);
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, User updatedUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                await UserService.UpdateUserAsync(id, updatedUser);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception and return an appropriate response
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            await UserService.DeleteUserAsync(id);
+            return NoContent();
         }
     }
 }
