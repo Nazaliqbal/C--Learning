@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI.Models
 {
-    public class MovieContext:DbContext
+    public class MovieContext:IdentityDbContext
     {
         public MovieContext(DbContextOptions<MovieContext> options):base(options)
         {
@@ -10,6 +11,7 @@ namespace WebAPI.Models
         }
 
         public DbSet<Movie> Movies { get; set; } = null!;
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+
     }
 }
